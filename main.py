@@ -1,7 +1,8 @@
 from random import randint
 
 
-def attack(char_name, char_class):
+def attack(char_name: str,
+           char_class: str) -> str:
     if char_class == 'warrior':
         return (f'{char_name} нанёс урон противнику '
                 f'равный {5 + randint(3, 5)}')
@@ -14,7 +15,8 @@ def attack(char_name, char_class):
     return (f'{char_name} не нанес урон противнику')
 
 
-def defence(char_name, char_class):
+def defence(char_name: str,
+            char_class: str) -> str:
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
     if char_class == 'mage':
@@ -24,7 +26,8 @@ def defence(char_name, char_class):
     return (f'{char_name} не блокировал урон')
 
 
-def special(char_name, char_class):
+def special(char_name: str,
+            char_class: str) -> str:
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение '
                 f'«Выносливость {80 + 25}»')
@@ -37,7 +40,8 @@ def special(char_name, char_class):
     return (f'{char_name} не применил специальное умение')
 
 
-def start_training(char_name, char_class):
+def start_training(char_name: str,
+                   char_class: str) -> str:
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -50,7 +54,7 @@ def start_training(char_name, char_class):
           'defence — чтобы блокировать атаку противника или '
           'special — чтобы использовать свою суперсилу.')
     print('Если не хочешь тренироваться, введи команду skip.')
-    cmd = None
+    cmd: str = ''
     while cmd != 'skip':
         cmd = input('Введи команду: ')
         if cmd == 'attack':
@@ -62,9 +66,9 @@ def start_training(char_name, char_class):
     return 'Тренировка окончена.'
 
 
-def choice_char_class():
-    approve_choice = None
-    char_class = None
+def choice_char_class() -> str:
+    approve_choice: str = ''
+    char_class: str = ''
     while approve_choice != 'y':
         char_class = input('Введи название персонажа, '
                            'за которого хочешь играть: '
